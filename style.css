@@ -1,0 +1,162 @@
+/* 1. Configurações de Reset e Fundo Infinito */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* O gradiente no HTML garante que ele cubra 100% da área visível */
+    height: 100%;
+    background: linear-gradient(to bottom, #07072b, #1f203f);
+    background-attachment: fixed; /* O fundo não rola com a página */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    padding: 40px 20px;
+    
+    /* Centraliza o CONTEÚDO, mas mantém o corpo transparente */
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: transparent; /* Garante que não haja cor sólida aqui */
+}
+
+/* 2. Estilização dos Títulos */
+h2, h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 3px solid #705bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+h3 {
+    margin-top: 40px;
+    font-size: 1.3rem;
+    color: #9281ff;
+}
+
+/* 3. Campo de Busca */
+#busca {
+    width: calc(100% - 130px);
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1); /* Efeito de vidro */
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#busca::placeholder {
+    color: #b0b0b0;
+}
+
+#busca:focus {
+    border-color: #705bff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ====================================================
+   SEPARAÇÃO DE BOTÕES E HOVERS
+   ==================================================== */
+
+/* --- 3.1 Botão de Busca (Principal) --- */
+/* Como ele está direto no body, não entra nas regras das listas */
+button {
+    width: 110px;
+    padding: 12px;
+    background-color: #705bff; /* Roxo */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #5a48d1; /* Roxo mais escuro (Não fica mais verde) */
+    transform: scale(1.05);
+}
+
+/* --- Tamanho Padrão para os Botões Pequenos --- */
+#resultados button, #favoritos button {
+    width: auto;
+    padding: 8px 15px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+/* --- 4.1 Botões "Favoritar" --- */
+#resultados button {
+    background-color: #22a6b3; /* Verde/Teal que você escolheu */
+}
+
+#resultados button:hover {
+    background-color: #17bb8f; /* Fica um verde mais vibrante/claro */
+    transform: scale(1.05);
+}
+
+/* --- 5.1 Botões "Remover" --- */
+#favoritos button {
+    background-color: #ca2320; /* Vermelho que você escolheu */
+}
+
+#favoritos button:hover {
+    background-color: #9c1b18; /* Fica um vermelho mais escuro no hover */
+    transform: scale(1.05);
+}
+
+/* ==================================================== */
+
+/* 4. Grid de Resultados (Dinâmico) */
+#resultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Cards brancos para contraste */
+#resultados div {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+/* 5. Lista de Favoritos */
+#favoritos {
+    list-style: none;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#favoritos li {
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 6px solid #ca2320; /* Borda vermelha pra combinar com o botão remover */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    color: #333;
+}
